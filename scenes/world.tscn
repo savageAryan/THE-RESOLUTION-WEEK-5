@@ -235,19 +235,19 @@ shape = SubResource("WorldBoundaryShape2D_xo05s")
 [node name="Node2D" type="Node2D" parent="." unique_id=769487903]
 
 [node name="Word" parent="." unique_id=680164542 groups=["words"] instance=ExtResource("6_qfnet")]
-position = Vector2(202, -8)
+position = Vector2(751, -151)
 
 [node name="Word2" parent="." unique_id=1529225310 groups=["words"] instance=ExtResource("6_qfnet")]
-position = Vector2(410, -87)
+position = Vector2(1624, -28)
 
 [node name="Word3" parent="." unique_id=2133760339 groups=["words"] instance=ExtResource("6_qfnet")]
 position = Vector2(670, 38)
 
 [node name="Word4" parent="." unique_id=397397402 groups=["words"] instance=ExtResource("6_qfnet")]
-position = Vector2(984, 17)
+position = Vector2(3088, 252)
 
 [node name="Word5" parent="." unique_id=1953959614 groups=["words"] instance=ExtResource("6_qfnet")]
-position = Vector2(1232, -115)
+position = Vector2(2175, 95)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=795753156]
 

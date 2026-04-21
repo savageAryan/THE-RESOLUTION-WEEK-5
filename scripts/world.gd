@@ -9,14 +9,15 @@ func _ready():
 	fetch_words()
 
 func fetch_words():
-	var url = "https://random-word-api.herokuapp.com/word?number=5"  
+	var url = "https://random-word-api.herokuapp.com/word?number=5" 
 	http_request.request(url)
 
 
-
-
-
 func _on_wordapi_requester_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+	print("called")
+	print(response_code)
+	print(body.get_string_from_utf8())
+	
 	if response_code == 200:
 		words = JSON.parse_string(body.get_string_from_utf8())
 		print(words)
