@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://qa3pwv74x5c7"]
+
+[ext_resource type="Script" uid="uid://b0ixv3bnf2ksf" path="res://scripts/word.gd" id="1_ar2rp"]
+[ext_resource type="FontFile" uid="uid://bpm57c8vel7kn" path="res://assets/PixelOperator8-Bold.ttf" id="2_ve73v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar2rp"]
+size = Vector2(46, 20)
+
+[node name="Word" type="Area2D" unique_id=680164542]
+script = ExtResource("1_ar2rp")
+
+[node name="Label" type="Label" parent="." unique_id=1915802967]
+offset_left = -2.0
+offset_right = 44.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ve73v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=102877163]
+position = Vector2(21, 12)
+shape = SubResource("RectangleShape2D_ar2rp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
