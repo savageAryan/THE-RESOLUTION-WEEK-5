@@ -1,6 +1,13 @@
 extends Node
 @onready var http_request = $WordapiRequester
 @onready var player = get_tree().get_first_node_in_group("dinosaur")
+@onready var joke_requester: HTTPRequest = $JokeRequester
+@onready var joke_label: Label = $dinosaur/JokeLabel
+
+@onready var joke_timer: Timer = $JokeTimer
+
+
+@onready var label: Label = $Label
 
 var word_nodes = []
 
@@ -16,10 +23,17 @@ var fallback_words = [
 
 ]
 
-
+func fetch_joke():
+	var url = "https://official-joke-api.appspot.com/random_joke"
+	
+	joke_requester.request(url)
+	
 
 
 func _ready():
+	Worldaudio.play()
+	
+	
 	await get_tree().process_frame
 	
 	word_nodes = get_tree().get_nodes_in_group("words")
@@ -100,3 +114,38 @@ func get_random_words(source_words,count):
 	var temp = source_words.duplicate()
 	temp.shuffle()
 	return temp.slice(0, count)
+
+
+
+
+
+
+	
+func _on_joke_timer_timeout():
+	print("timer fired")
+	fetch_joke()
+	
+
+
+
+
+
+func _on_joke_requester_request_completed(result, response_code, headers, body):
+
+	print("Joke response:", response_code)
+
+	if response_code == 200:
+
+		var parsed = JSON.parse_string(body.get_string_from_utf8())
+
+		print(parsed)
+
+		if parsed != null:
+			var joke = str(parsed["setup"]) + "\n" + str(parsed["punchline"])
+
+			joke_label.text = joke
+
+			print("Joke set:", joke)
+
+	else:
+		joke_label.text = "No joke available"

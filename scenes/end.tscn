@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dhf3wnam6fmee" path="res://scripts/score.gd" id="6_o5lv4"]
 [ext_resource type="Script" uid="uid://cpbv5kcdub55o" path="res://scripts/quit.gd" id="7_o5lv4"]
 [ext_resource type="Script" uid="uid://bpt8ic8xvlnnh" path="res://scripts/restart.gd" id="8_ee763"]
+[ext_resource type="AudioStream" uid="uid://bvs1qjpect3oi" path="res://assets/dragon-studio-notification-sound-effect-372475.mp3" id="8_nl5ow"]
 
 [sub_resource type="Animation" id="Animation_mwn6m"]
 length = 0.001
@@ -449,6 +450,9 @@ theme_override_font_sizes/font_size = 18
 text = "SUBMIT"
 script = ExtResource("5_8hmjt")
 
+[node name="buttonclick4" type="AudioStreamPlayer" parent="submit" unique_id=2132967098]
+stream = ExtResource("8_nl5ow")
+
 [node name="Label2" type="Label" parent="." unique_id=2040000795]
 layout_mode = 0
 offset_left = -189.0
@@ -479,6 +483,9 @@ theme_override_fonts/font = ExtResource("3_p7m4f")
 text = "QUIT"
 script = ExtResource("7_o5lv4")
 
+[node name="buttonclick" type="AudioStreamPlayer" parent="quit" unique_id=1103297590]
+stream = ExtResource("8_nl5ow")
+
 [node name="restart" type="Button" parent="." unique_id=1124569648]
 visible = false
 layout_mode = 0
@@ -490,6 +497,9 @@ theme_override_fonts/font = ExtResource("3_p7m4f")
 theme_override_font_sizes/font_size = 26
 text = "RESTART"
 script = ExtResource("8_ee763")
+
+[node name="buttonclick2" type="AudioStreamPlayer" parent="restart" unique_id=416250531]
+stream = ExtResource("8_nl5ow")
 
 [connection signal="pressed" from="submit" to="submit" method="_on_pressed"]
 [connection signal="pressed" from="submit" to="scorelabel" method="_on_submit_pressed"]

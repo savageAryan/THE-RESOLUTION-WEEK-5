@@ -1,6 +1,8 @@
 extends Button
 var colour
 
+@onready var buttonselect: AudioStreamPlayer = $"../buttonselect"
+
 var word = ""
 var selected = false
 func set_word(w):
@@ -10,7 +12,9 @@ func set_word(w):
 	
 	
 func _pressed() -> void:
+	
 	var selected = get_meta("selected", false)
+	
 	
 	if selected:
 		modulate = Color(1, 1, 1)

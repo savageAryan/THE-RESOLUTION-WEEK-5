@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0bkpadke7a4o"]
+
+[ext_resource type="AudioStream" uid="uid://csyd8y4nb82ra" path="res://assets/xtremefreddy-game-music-loop-7-145285.mp3" id="1_hnxd4"]
+[ext_resource type="Script" uid="uid://d32o7gkvryq6e" path="res://scripts/worldaudio.gd" id="2_jdt0x"]
+
+[node name="worldaudio" type="AudioStreamPlayer" unique_id=1101548192]
+stream = ExtResource("1_hnxd4")
+script = ExtResource("2_jdt0x")

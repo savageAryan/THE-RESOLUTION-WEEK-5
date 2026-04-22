@@ -4,8 +4,13 @@
 [ext_resource type="Script" uid="uid://cl7svdokphonw" path="res://scripts/dinosaur.gd" id="1_rwgxs"]
 [ext_resource type="Texture2D" uid="uid://dwfhohaitopnp" path="res://assets/dinosaur_.png" id="2_4wyf3"]
 [ext_resource type="Texture2D" uid="uid://cyugfg1bd6jac" path="res://assets/Mossy - TileSet.png" id="3_4wyf3"]
+[ext_resource type="AudioStream" uid="uid://do8v88edogqgj" path="res://assets/freesound_community-toy-button-105724.mp3" id="4_4mrxx"]
+[ext_resource type="FontFile" uid="uid://bpm57c8vel7kn" path="res://assets/PixelOperator8-Bold.ttf" id="4_e3hyu"]
 [ext_resource type="Script" uid="uid://dblkvmewemu6e" path="res://scripts/killarea.gd" id="4_k0juu"]
+[ext_resource type="Texture2D" uid="uid://cupq0it4lq6vj" path="res://assets/Background.png" id="5_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://qa3pwv74x5c7" path="res://scenes/word.tscn" id="6_qfnet"]
+[ext_resource type="AudioStream" uid="uid://r4pdt154kq6f" path="res://assets/driken5482-retro-coin-1-236677.mp3" id="7_i7141"]
+[ext_resource type="Script" uid="uid://dskfenlc1jk88" path="res://scripts/jokerequest.gd" id="10_w7kh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0juu"]
 atlas = ExtResource("2_4wyf3")
@@ -202,9 +207,27 @@ sources/0 = SubResource("TileSetAtlasSource_k0juu")
 [node name="world" type="Node2D" unique_id=1381158931]
 script = ExtResource("1_71j4m")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1628921479]
+modulate = Color(0.6862745, 0.57254905, 0.9490196, 0.8)
+offset_left = -275.0
+offset_top = -1092.0
+offset_right = 3531.0
+offset_bottom = 513.0
+texture = ExtResource("5_7r4gi")
+
 [node name="dinosaur" type="CharacterBody2D" parent="." unique_id=1072625869 groups=["dinosaur"]]
 scale = Vector2(1.3600012, 1.3600012)
 script = ExtResource("1_rwgxs")
+
+[node name="JokeLabel" type="Label" parent="dinosaur" unique_id=393802712]
+offset_left = -134.5587
+offset_top = -27.205858
+offset_right = 61.4413
+offset_bottom = -4.205858
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_e3hyu")
+theme_override_font_sizes/font_size = 8
+text = "JOKE INCOMIN....."
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="dinosaur" unique_id=817864949]
 sprite_frames = SubResource("SpriteFrames_4mrxx")
@@ -220,6 +243,11 @@ limit_bottom = 354
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="jumpaudio" type="AudioStreamPlayer" parent="dinosaur" unique_id=304862921]
+stream = ExtResource("4_4mrxx")
+pitch_scale = 1.3
+bus = &"sfx"
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1428859380]
 scale = Vector2(0.04, 0.04)
 tile_map_data = PackedByteArray("AAAFAAEAAAABAAAAAAABAAEAAAABAAAAAAAAAAEAAAABAAAAAAD//wEAAAABAAAAAAACAAEAAAABAAAAAAAEAAEAAAABAAAAAAADAAEAAAABAAAAAAD+/wEAAAABAAAAAAD9/wEAAAABAAAAAAAGAAEAAAABAAAAAAAHAAEAAAABAAAAAAAIAAEAAAABAAAAAAAJAAEAAAABAAAAAAAKAAEAAAABAAAAAAALAAEAAAABAAAAAAAMAAEAAAABAAAAAAARAP3/AAABAAAAAAASAP3/AAABAAAAAAATAP3/AAABAAAAAAAUAP3/AAABAAAAAAAVAP3/AAABAAAAAAAWAP3/AAABAAAAAAAXAP3/AAABAAAAAAAYAP3/AAABAAAAAAAZAP3/AAABAAAAAAAeAAMAAAABAAAAAAAfAAMAAAABAAAAAAAgAAMAAAABAAAAAAAhAAMAAAABAAAAAAAiAAMAAAABAAAAAAAjAAMAAAABAAAAAAAkAAMAAAABAAAAAAAlAAMAAAABAAAAAAAmAAMAAAABAAAAAAAnAAMAAAABAAAAAAAuAAMAAAABAAAAAAAvAAMAAAABAAAAAAAwAAMAAAABAAAAAAAxAAMAAAABAAAAAAAyAAMAAAABAAAAAAA6AP3/AAABAAAAAAA7AP3/AAABAAAAAAA8AP3/AAABAAAAAAA9AP3/AAABAAAAAAA+AP3/AAABAAAAAAA/AP3/AAABAAAAAABAAP3/AAABAAAAAAA1AAAAAAABAAAAAAA2AAAAAAABAAAAAAA3AAAAAAABAAAAAAA4AAAAAAABAAAAAAA5AAAAAAABAAAAAAA6AAAAAAABAAAAAAA7AAAAAAABAAAAAAA8AAAAAAABAAAAAAAgAPr/AAABAAAAAAAhAPr/AAABAAAAAAAiAPr/AAABAAAAAAAjAPr/AAABAAAAAAAkAPr/AAABAAAAAAAlAPr/AAABAAAAAAAmAPr/AAABAAAAAAAnAPr/AAABAAAAAAAoAPr/AAABAAAAAAApAPr/AAABAAAAAABNAAAAAAABAAAAAABOAAAAAAABAAAAAABPAAAAAAABAAAAAABQAAAAAAABAAAAAABRAAAAAAABAAAAAABSAAAAAAABAAAAAABTAAAAAAABAAAAAAA/AAcAAAABAAAAAABAAAcAAAABAAAAAABBAAcAAAABAAAAAABCAAcAAAABAAAAAABDAAcAAAABAAAAAABEAAcAAAABAAAAAABFAAcAAAABAAAAAABGAAcAAAABAAAAAABHAAcAAAABAAAAAABIAAcAAAABAAAAAABJAAcAAAABAAAAAABKAAcAAAABAAAAAABIAAQAAAABAAAAAABJAAQAAAABAAAAAABKAAQAAAABAAAAAABLAAQAAAABAAAAAABMAAQAAAABAAAAAABNAAQAAAABAAAAAABOAAQAAAABAAAAAABPAAQAAAABAAAAAABQAAQAAAABAAAAAABRAAQAAAABAAAAAABSAAQAAAABAAAAAABTAAQAAAABAAAAAABbAAwAAAABAAAAAABcAAwAAAABAAAAAABdAAwAAAABAAAAAABeAAwAAAABAAAAAABfAAwAAAABAAAAAABgAAwAAAABAAAAAABhAAwAAAABAAAAAABiAAwAAAABAAAAAABjAAwAAAABAAAAAABkAAwAAAABAAAAAABlAAwAAAABAAAAAABmAAwAAAABAAAAAABnAAwAAAABAAAAAABoAAwAAAABAAAAAABpAAwAAAABAAAAAABqAAwAAAABAAAAAABrAAwAAAABAAAAAABsAAwAAAABAAAAAABtAAwAAAABAAAAAACIAA0AAAABAAAAAACJAA0AAAABAAAAAACKAA0AAAABAAAAAACLAA0AAAABAAAAAACMAA0AAAABAAAAAACPAA4AAAABAAAAAACQAA4AAAABAAAAAACRAA4AAAABAAAAAACSAA4AAAABAAAAAACTAA4AAAABAAAAAACUAA4AAAABAAAAAACVAA4AAAABAAAAAACWAA4AAAABAAAAAACXAA4AAAABAAAAAACYAA4AAAABAAAAAACZAA4AAAABAAAAAACaAA4AAAABAAAAAAB4AAUAAAABAAAAAAB5AAUAAAABAAAAAAB6AAUAAAABAAAAAAB7AAUAAAABAAAAAAB8AAUAAAABAAAAAAB9AAUAAAABAAAAAAB+AAUAAAABAAAAAAB/AAUAAAABAAAAAACAAAUAAAABAAAAAACBAAUAAAABAAAAAACCAAUAAAABAAAAAACDAAUAAAABAAAAAACEAAUAAAABAAAAAACFAAUAAAABAAAAAACGAAUAAAABAAAAAACHAAUAAAABAAAAAABcAPr/AAABAAAAAABdAPr/AAABAAAAAABeAPr/AAABAAAAAABfAPr/AAABAAAAAABgAPr/AAABAAAAAABhAPr/AAABAAAAAABiAPr/AAABAAAAAABcAAEAAAABAAAAAABdAAEAAAABAAAAAABeAAEAAAABAAAAAABzAAgAAAABAAAAAAB0AAgAAAABAAAAAAA=")
@@ -233,8 +261,6 @@ position = Vector2(0, 383)
 shape = SubResource("WorldBoundaryShape2D_xo05s")
 
 [node name="WordapiRequester" type="HTTPRequest" parent="." unique_id=1386046518]
-
-[node name="Node2D" type="Node2D" parent="." unique_id=769487903]
 
 [node name="Word" parent="." unique_id=680164542 groups=["words"] instance=ExtResource("6_qfnet")]
 position = Vector2(751, -151)
@@ -259,6 +285,19 @@ position = Vector2(4775, 255.00003)
 rotation = -1.5772331
 shape = SubResource("WorldBoundaryShape2D_qfnet")
 
+[node name="wordpick" type="AudioStreamPlayer" parent="." unique_id=1729355431]
+stream = ExtResource("7_i7141")
+bus = &"sfx"
+
+[node name="JokeRequester" type="HTTPRequest" parent="." unique_id=1236248902]
+script = ExtResource("10_w7kh3")
+
+[node name="JokeTimer" type="Timer" parent="." unique_id=47681784]
+wait_time = 6.0
+autostart = true
+
 [connection signal="body_entered" from="killarea" to="killarea" method="_on_body_entered"]
 [connection signal="request_completed" from="WordapiRequester" to="." method="_on_wordapi_requester_request_completed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="request_completed" from="JokeRequester" to="." method="_on_joke_requester_request_completed"]
+[connection signal="timeout" from="JokeTimer" to="." method="_on_joke_timer_timeout"]

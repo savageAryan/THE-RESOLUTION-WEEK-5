@@ -4,6 +4,7 @@ extends Button
 @onready var grid: GridContainer = $"../GridContainer"
 @onready var scorelabel: Label = $"../scorelabel"
 
+@onready var buttonclick_4: AudioStreamPlayer = $buttonclick4
 
 @onready var label: Label = $"../Label"
 @onready var restart: Button = $"../restart"
@@ -13,6 +14,7 @@ extends Button
 @onready var quit: Button = $"../quit"
 
 func _on_pressed() -> void:
+	buttonclick_4.play()
 	var selected_words = []
 	for child in grid.get_children():
 		if child.get_meta("selected", false):
