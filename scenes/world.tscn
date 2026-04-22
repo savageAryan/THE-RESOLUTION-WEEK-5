@@ -293,7 +293,7 @@ bus = &"sfx"
 script = ExtResource("10_w7kh3")
 
 [node name="JokeTimer" type="Timer" parent="." unique_id=47681784]
-wait_time = 6.0
+wait_time = 8.0
 autostart = true
 
 [connection signal="body_entered" from="killarea" to="killarea" method="_on_body_entered"]

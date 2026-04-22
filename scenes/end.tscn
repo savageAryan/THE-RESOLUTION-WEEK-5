@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://oxt5ce0ulsgg"]
 
 [ext_resource type="Script" uid="uid://dp0tvp27big2" path="res://scripts/end.gd" id="1_3d26k"]
-[ext_resource type="FontFile" uid="uid://d1j4squk8loa5" path="res://assets/Montserrat-ExtraBoldItalic.otf" id="2_3d26k"]
+[ext_resource type="FontFile" uid="uid://bpm57c8vel7kn" path="res://assets/PixelOperator8-Bold.ttf" id="2_nl5ow"]
 [ext_resource type="Script" uid="uid://bgu88kumlp23t" path="res://scripts/wordb.gd" id="3_bvfni"]
 [ext_resource type="FontFile" uid="uid://dwl2bqq7sh1ph" path="res://assets/Montserrat-ExtraBold.ttf" id="3_p7m4f"]
 [ext_resource type="Script" uid="uid://17nepbsvdtfi" path="res://scripts/submit.gd" id="5_8hmjt"]
@@ -353,8 +353,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 15
-theme_override_fonts/font = ExtResource("2_3d26k")
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("2_nl5ow")
+theme_override_font_sizes/font_size = 22
 text = "YOU ROCK DUDE!!!!"
 
 [node name="end scene animation" type="AnimationPlayer" parent="." unique_id=1592463851]
@@ -363,20 +363,18 @@ libraries/ = SubResource("AnimationLibrary_p7m4f")
 autoplay = &"end"
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1070568032]
-visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -33.000004
-offset_top = -5.0
-offset_right = 10.999996
-offset_bottom = 35.0
+offset_left = 14.0
+offset_top = 6.0
+offset_right = 58.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.0574738, 1.0719333)
+scale = Vector2(0.7774732, 0.7881041)
 columns = 4
 
 [node name="wordb" type="Button" parent="GridContainer" unique_id=1336186033 groups=["words"]]
@@ -464,12 +462,12 @@ theme_override_fonts/font = SubResource("FontFile_bvfni")
 text = "SELECT ONLY THE WORDS YOU COLLECTED:"
 
 [node name="scorelabel" type="Label" parent="." unique_id=1023009298]
-visible = false
 layout_mode = 0
-offset_left = -33.0
+offset_left = -40.0
 offset_top = -58.0
-offset_right = 44.0
+offset_right = 37.0
 offset_bottom = -18.0
+theme_override_fonts/font = ExtResource("2_nl5ow")
 script = ExtResource("6_o5lv4")
 
 [node name="quit" type="Button" parent="." unique_id=1009148893]

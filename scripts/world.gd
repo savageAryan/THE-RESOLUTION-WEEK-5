@@ -37,7 +37,7 @@ func _ready():
 	await get_tree().process_frame
 	
 	word_nodes = get_tree().get_nodes_in_group("words")
-	print("Word nodes found:", word_nodes.size())
+	
 
 	GameManager.collected_words.clear()
 
@@ -55,8 +55,6 @@ func fetch_words():
 
 func _on_wordapi_requester_request_completed(result, response_code, headers, body):
 
-	print("response:", response_code)
-
 	if response_code == 200:
 		
 
@@ -73,11 +71,9 @@ func _on_wordapi_requester_request_completed(result, response_code, headers, bod
 		
 		
 		if words.is_empty():
-			print("API empty → fallback")
 			words = fallback_words.duplicate()
 
 	else:
-		print("API failed → fallback")
 		words = fallback_words.duplicate()
 		
 		
@@ -95,15 +91,14 @@ func _on_wordapi_requester_request_completed(result, response_code, headers, bod
 		player.set_physics_process(true)
 
 func assign_words():
-	print("Assigning words...")
+	
 
 	for i in range(min(words.size(), word_nodes.size())):
 		if word_nodes[i] != null:
 			word_nodes[i].set_word(words[i])
 			
 			
-			print("Assigned:", words[i])
-
+			
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("dinosaur"):
@@ -122,7 +117,6 @@ func get_random_words(source_words,count):
 
 	
 func _on_joke_timer_timeout():
-	print("timer fired")
 	fetch_joke()
 	
 
@@ -131,8 +125,8 @@ func _on_joke_timer_timeout():
 
 
 func _on_joke_requester_request_completed(result, response_code, headers, body):
+	
 
-	print("Joke response:", response_code)
 
 	if response_code == 200:
 
