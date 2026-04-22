@@ -1,18 +1,21 @@
 extends Button
 
 
+@onready var grid: GridContainer = $"../GridContainer"
 
 @onready var score: Label = $"../score"
 
 
 func _on_pressed() -> void:
-	var grid = get_node("GridContainer")
-	var word_nodes = grid.get_children()
-	var score = 0
+	var selected_words = []
+	for child in grid.get_children():
+		if child.get_meta("selected", false):
+			selected_words.append(child.text)
+	var correct = GameManager.collected_words
+	var score =0
 	
-	for node in word_nodes:
-		if node and node.selected:
-			if node.word in GameManager.correct_sentence:
-				score += 1
-				
-				score.text = "SCORE- " + str(score)
+	for word in selected_words:
+		if word in correct:
+			score += 1
+			
+			print("score", score)
