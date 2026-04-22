@@ -35,38 +35,50 @@ func _ready():
 
 
 func fetch_words():
-	var url = "https://random-word-api.vercel.app/api?words=5"
+	var url = "https://random-words-api.kushcreates.com/api?length=6&words=10"
 	http_request.request(url)
 
 
 func _on_wordapi_requester_request_completed(result, response_code, headers, body):
-	print("API called")
-	print("Response:", response_code)
+
+	print("response:", response_code)
 
 	if response_code == 200:
+		
+
 		var parsed = JSON.parse_string(body.get_string_from_utf8())
 
-		if typeof(parsed) == TYPE_ARRAY and parsed.size() > 0:
-			words = get_random_words(words, 5)
-			
-		else:
-			
-			words = get_random_words(fallback_words, 5)
-	else:
-		
-		words = get_random_words(fallback_words, 5)
+		words.clear()
 
+
+		for item in parsed:
+			if item.has("word"):
+				words.append(item["word"])
+			
+				
+		
+		
+		if words.is_empty():
+			print("API empty → fallback")
+			words = fallback_words.duplicate()
+
+	else:
+		print("API failed → fallback")
+		words = fallback_words.duplicate()
+		
+		
 	
+	words.shuffle()
+	words = words.slice(0, 5)
+
 	GameManager.correct_sentence = words.duplicate()
 
 	assign_words()
 
 	api_ready = true
 
-	
 	if player:
 		player.set_physics_process(true)
-
 
 func assign_words():
 	print("Assigning words...")

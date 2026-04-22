@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://dwl2bqq7sh1ph" path="res://assets/Montserrat-ExtraBold.ttf" id="3_p7m4f"]
 [ext_resource type="Script" uid="uid://17nepbsvdtfi" path="res://scripts/submit.gd" id="5_8hmjt"]
 [ext_resource type="Script" uid="uid://dhf3wnam6fmee" path="res://scripts/score.gd" id="6_o5lv4"]
+[ext_resource type="Script" uid="uid://cpbv5kcdub55o" path="res://scripts/quit.gd" id="7_o5lv4"]
+[ext_resource type="Script" uid="uid://bpt8ic8xvlnnh" path="res://scripts/restart.gd" id="8_ee763"]
 
 [sub_resource type="Animation" id="Animation_mwn6m"]
 length = 0.001
@@ -378,50 +380,62 @@ columns = 4
 
 [node name="wordb" type="Button" parent="GridContainer" unique_id=1336186033 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb2" type="Button" parent="GridContainer" unique_id=1064356846 groups=["words"]]
+[node name="wordb2" type="Button" parent="GridContainer" unique_id=602001086 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb3" type="Button" parent="GridContainer" unique_id=851778486 groups=["words"]]
+[node name="wordb3" type="Button" parent="GridContainer" unique_id=1151802787 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb4" type="Button" parent="GridContainer" unique_id=436883710 groups=["words"]]
+[node name="wordb4" type="Button" parent="GridContainer" unique_id=796573386 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb5" type="Button" parent="GridContainer" unique_id=29442234 groups=["words"]]
+[node name="wordb5" type="Button" parent="GridContainer" unique_id=1316903450 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb6" type="Button" parent="GridContainer" unique_id=1830775741 groups=["words"]]
+[node name="wordb6" type="Button" parent="GridContainer" unique_id=1439019555 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb7" type="Button" parent="GridContainer" unique_id=236120944 groups=["words"]]
+[node name="wordb7" type="Button" parent="GridContainer" unique_id=1637645032 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb8" type="Button" parent="GridContainer" unique_id=851007403 groups=["words"]]
+[node name="wordb8" type="Button" parent="GridContainer" unique_id=628203762 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb9" type="Button" parent="GridContainer" unique_id=979913545 groups=["words"]]
+[node name="wordb9" type="Button" parent="GridContainer" unique_id=238593399 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb10" type="Button" parent="GridContainer" unique_id=1833963876 groups=["words"]]
+[node name="wordb10" type="Button" parent="GridContainer" unique_id=165762848 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb11" type="Button" parent="GridContainer" unique_id=564849132 groups=["words"]]
+[node name="wordb11" type="Button" parent="GridContainer" unique_id=1795329220 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
-[node name="wordb12" type="Button" parent="GridContainer" unique_id=351279600 groups=["words"]]
+[node name="wordb12" type="Button" parent="GridContainer" unique_id=1830481724 groups=["words"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p7m4f")
 script = ExtResource("3_bvfni")
 
 [node name="submit" type="Button" parent="." unique_id=299247000]
@@ -445,10 +459,39 @@ theme_override_colors/font_color = Color(0.56078434, 0.09803922, 0.23137255, 1)
 theme_override_fonts/font = SubResource("FontFile_bvfni")
 text = "SELECT ONLY THE WORDS YOU COLLECTED:"
 
-[node name="score" type="Label" parent="." unique_id=1023009298]
+[node name="scorelabel" type="Label" parent="." unique_id=1023009298]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -33.0
+offset_top = -58.0
+offset_right = 44.0
+offset_bottom = -18.0
 script = ExtResource("6_o5lv4")
 
+[node name="quit" type="Button" parent="." unique_id=1009148893]
+visible = false
+layout_mode = 0
+offset_left = -50.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("3_p7m4f")
+text = "QUIT"
+script = ExtResource("7_o5lv4")
+
+[node name="restart" type="Button" parent="." unique_id=1124569648]
+visible = false
+layout_mode = 0
+offset_left = -66.0
+offset_top = -22.0
+offset_right = 67.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("3_p7m4f")
+theme_override_font_sizes/font_size = 26
+text = "RESTART"
+script = ExtResource("8_ee763")
+
 [connection signal="pressed" from="submit" to="submit" method="_on_pressed"]
+[connection signal="pressed" from="submit" to="scorelabel" method="_on_submit_pressed"]
+[connection signal="pressed" from="quit" to="quit" method="_on_pressed"]
+[connection signal="pressed" from="restart" to="restart" method="_on_pressed"]
