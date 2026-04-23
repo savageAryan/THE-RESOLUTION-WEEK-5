@@ -1,5 +1,7 @@
 # THE MUMMBLE DINOSAUR
 This game is made in godot engine for hackclub resolution game dev path week 5, Game has a hungry dinosaur that eats words and you have to remember the words that the dinosaur eats and then select them at the end of the game,it contains two api requesters one for random word and one for jokes
+## HOW TO PLAY???
+--Visit https://savagearyan.itch.io/mumbble-dinosaur ,click run game..
 ## CONTROLS-
 * A - LEFT
 * D - RIGHT
